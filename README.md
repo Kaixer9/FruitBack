@@ -34,5 +34,5 @@ METHOD | ENDPOINT            | TOKEN | ROLE     | DESCRIPTION              | POS
 GET    | /                   | NO    | user     | Get Home                 |                                                 |
 GET    | /user/profile       | YES   | user     | Get Own Profile          |                                                 | {user}
 PUT    | /user/profile       | YES   | user     | Update Own Profile       | `nick`, `email`, `contraseña`                 | {message: 'user updated'}
-GET    | /frutas             | YES   | user     | Get frutas               |                                                 | [{frutas}]
+GET    | /frutas             | NO    | user     | Get frutas               |                                                 | [{frutas}]
 GET    | /frutas/recetas     | YES   | user     | Get recetas              |                                                 | [{recetas}]

@@ -180,3 +180,150 @@ const obtenerUsuario = async (req, res) => {
 };
 
 module.exports = { obtenerUsuario };
+
+
+// En React, los controladores pueden ser funciones o componentes que manejan eventos o acciones específicas.
+
+// User Signup/Login
+const signUp = async (nick, email, password) => {
+	// Lógica para realizar la solicitud POST a /auth/signup
+	const response = await fetch('/auth/signup', {
+	  method: 'POST',
+	  headers: {
+		'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify({ nick, email, password }),
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, almacenar el token en el estado global o local storage
+	console.log(data.token);
+  };
+  
+  const login = async (email, password) => {
+	// Lógica para realizar la solicitud POST a /auth/login
+	const response = await fetch('/auth/login', {
+	  method: 'POST',
+	  headers: {
+		'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify({ email, password }),
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, almacenar el token en el estado global o local storage
+	console.log(data.token);
+  };
+  
+  // Admin
+  const getAllUsers = async () => {
+	// Lógica para realizar la solicitud GET a /user con token de administrador
+	const response = await fetch('/user', {
+	  method: 'GET',
+	  headers: {
+		Authorization: 'Bearer YOUR_ADMIN_TOKEN',
+	  },
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar la lista de usuarios
+	console.log(data);
+  };
+  
+  const updateUser = async (userId, nick, email, password) => {
+	// Lógica para realizar la solicitud PUT a /user/:userId con token de administrador
+	const response = await fetch(`/user/${userId}`, {
+	  method: 'PUT',
+	  headers: {
+		Authorization: 'Bearer YOUR_ADMIN_TOKEN',
+		'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify({ nick, email, password }),
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar un mensaje de éxito
+	console.log(data.message);
+  };
+  
+  const deleteUser = async (userId) => {
+	// Lógica para realizar la solicitud DELETE a /user/:userId con token de administrador
+	const response = await fetch(`/user/${userId}`, {
+	  method: 'DELETE',
+	  headers: {
+		Authorization: 'Bearer YOUR_ADMIN_TOKEN',
+	  },
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar un mensaje de éxito
+	console.log(data.message);
+  };
+  
+  // User Navigation
+  const getHome = async () => {
+	// Lógica para realizar la solicitud GET a /
+	const response = await fetch('/', {
+	  method: 'GET',
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar contenido de la página de inicio
+	console.log(data);
+  };
+  
+  const getOwnProfile = async () => {
+	// Lógica para realizar la solicitud GET a /user/profile con token de usuario
+	const response = await fetch('/user/profile', {
+	  method: 'GET',
+	  headers: {
+		Authorization: 'Bearer YOUR_USER_TOKEN',
+	  },
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar el perfil del usuario
+	console.log(data.user);
+  };
+  
+  const updateOwnProfile = async (nick, email, password) => {
+	// Lógica para realizar la solicitud PUT a /user/profile con token de usuario
+	const response = await fetch('/user/profile', {
+	  method: 'PUT',
+	  headers: {
+		Authorization: 'Bearer YOUR_USER_TOKEN',
+		'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify({ nick, email, password }),
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar un mensaje de éxito
+	console.log(data.message);
+  };
+  
+  const getFrutas = async () => {
+	// Lógica para realizar la solicitud GET a /frutas
+	const response = await fetch('/frutas', {
+	  method: 'GET',
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar la lista de frutas
+	console.log(data);
+  };
+  
+  const getRecetas = async () => {
+	// Lógica para realizar la solicitud GET a /frutas/recetas con token de usuario
+	const response = await fetch('/frutas/recetas', {
+	  method: 'GET',
+	  headers: {
+		Authorization: 'Bearer YOUR_USER_TOKEN',
+	  },
+	});
+  
+	const data = await response.json();
+	// Manejar la respuesta, por ejemplo, mostrar la lista de recetas
+	console.log(data);
+  };
+// Modificar  

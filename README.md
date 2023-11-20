@@ -19,10 +19,9 @@ POST   | /auth/login      | -     | user  | User Login               | `email`, 
 
 METHOD | ENDPOINT            | TOKEN | ROLE     | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|---------------------|-------|----------|--------------------------|-------------------------------------------------|--------------------
-GET    | /user               | YES   | admin    | Get All Users            |  `query params`                                 | [{user}]
+GET    | /user               | YES   | admin    | Get All Users            | `query params`                                  | [{user}]
 PUT    | /user/:userId       | YES   | admin    | Update user              | `nick`, `email`, `contraseña`                   | {message: 'user updated'}
 DELETE | /user/:userId       | YES   | admin    | Delete user              |                                                 | {message: 'user deleted'}
-
 GET    | /                   | NO    | user     | Get Home                 |                                                 |
 GET    | /user/profile       | YES   | user     | Get Own Profile          |                                                 | {user}
 PUT    | /user/profile       | YES   | user     | Update Own Profile       | `nombre`, `email`, `contraseña`                 | {message: 'user updated'}

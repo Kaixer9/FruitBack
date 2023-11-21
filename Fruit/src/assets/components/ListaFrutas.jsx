@@ -5,8 +5,7 @@ const ListaFrutas = () => {
   const [Frutas, setFrutas] = useState([]);
 
   useEffect(() => {
-    // Simular
-    //  solicitud a la API aquí
+    // Simulación, pasarlas por json (?)
     const datosSimulados = [
       { id: 1, nombre: 'Zanahoria' },
       { id: 2, nombre: 'Calabacín' },

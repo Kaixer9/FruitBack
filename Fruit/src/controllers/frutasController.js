@@ -1,26 +1,66 @@
-const connection = require('../database');
+const connection = require('../../database/index.js');
+const Fruit = require('../models/Fruta.js');
 
-/*const obtenerFrutas = async (req, res) => {
-  // dame lista frutitas
+
+async function getAllFruits(req, res) {
+	try {
+		const fruit = await Fruit.findAll({
+			where: req.query,
+			attributes: {
+			}
+		})
+		if (fruit) {
+			return res.status(200).json(fruit)
+		} else {
+			return res.status(404).send('Fruta no encontrada')
+		}
+	} catch (error) {
+		res.status(500).send(error.message)
+	}
 };
 
-const crearFruta = async (req, res) => {
-  // suma frutitas
-};
+async function createFruit(req, res) {
+	try {
+		const fruit = await Fruit.create(req.body)
+		return res.status(200).json({ message: 'Fruta creada', fruit: fruit })
+	} catch (error) {
+		res.status(500).send(error.message)
+	}
+}
 
-module.exports = { obtenerFrutas, crearFruta };*/
+async function updateFruit(req, res) {
+	try {
+		const [testExist, test] = await Fruit.update(req.body, {
+			returning: true,
+			where: {
+				id: req.params.testId,
+			},
+		})
+		if (fruitExist !== 0) {
+			return res.status(200).json({ message: 'Fruta actualizada', fruit: fruit })
+		} else {
+			return res.status(404).send('Fruta no encontrada')
+		}
+	} catch (error) {
+		return res.status(500).send(error.message)
+	}
+}
 
-const database = require('../../database');
+async function deleteFruit(req, res) {
+	try {
+		const fruit = await Fruta.destroy({
+			where: {
+				id: req.params.id,
+			},
+		})
+		if (fruit) {
+			return res.status(200).send('Fruta borrada')
+		} else {
+			return res.status(404).send('Fruta no encontrada')
+		}
+	} catch (error) {
+		return res.status(500).send(error.message)
+	}
+}
 
-const obtenerFrutas = (req, res) => {
-  database.query('SELECT * FROM Frutas', (error, results) => {
-    if (error) {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'Error interno' });
-    } else {
-      res.status(200).json(results);
-    }
-  });
-};
-
-module.exports = { obtenerFrutas };
+module.exports = { getAllFruits, createFruit, updateFruit, deleteFruit }

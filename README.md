@@ -35,8 +35,8 @@ METHOD | ENDPOINT           | TOKEN | ROLE     | DESCRIPTION           | POST PA
 -------|--------------------|-------|----------|-----------------------|----------------------------------------------|--------------------
 GET    | /frutas            | YES   | admin    | Get All fruits        |                                              | [{fruits}]
 POST   | /frutas            | YES   | admin    | Create fruits         |                                              | {message: 'fruit created'}
-PUT    | /frutas            | YES   | admin    | Update fruits         |                                              | {message: 'fruit updated'}
-DELETE | /frutas            | YES   | admin    | Delete fruits         |                                              | {message: 'fruit deleted'}
+PUT    | /frutas/:frutasId  | YES   | admin    | Update fruits         |                                              | {message: 'fruit updated'}
+DELETE | /frutas/:frutasId  | YES   | admin    | Delete fruits         |                                              | {message: 'fruit deleted'}
 GET    | /frutas/:frutasId  | NO    | user     | Get fruits            |                                              | [{fruits}]
 
 ### Recetas

@@ -33,10 +33,11 @@ PUT    | /user/profile      | YES   | user     | Update Own Profile    | `nick`,
 
 METHOD | ENDPOINT           | TOKEN | ROLE     | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|--------------------|-------|----------|-----------------------|----------------------------------------------|--------------------
+GET    | /frutas            | YES   | admin    | Get All fruits        |                                              | [{fruits}]
 POST   | /frutas            | YES   | admin    | Create fruits         |                                              | {message: 'fruit created'}
 PUT    | /frutas            | YES   | admin    | Update fruits         |                                              | {message: 'fruit updated'}
 DELETE | /frutas            | YES   | admin    | Delete fruits         |                                              | {message: 'fruit deleted'}
-GET    | /frutas            | NO    | user     | Get fruits            |                                              | [{fruits}]
+GET    | /frutas/:frutasId  | NO    | user     | Get fruits            |                                              | [{fruits}]
 
 ### Recetas
 

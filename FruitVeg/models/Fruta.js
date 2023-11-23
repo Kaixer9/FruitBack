@@ -12,7 +12,7 @@ const Fruit = sequelize.define(
             type: DataTypes.ENUM('fruta', 'verdura'),
             allowNull: false,
         },
-        estacion: {
+        estación: {
             type: DataTypes.ENUM('primavera', 'verano', 'otoño', 'invierno'),
             allowNull: false,
         },
@@ -20,23 +20,23 @@ const Fruit = sequelize.define(
             type: DataTypes.ENUM('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'),
             allowNull: false,
         },
-        Calorías: {
+        calorías: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Carbohidratos: {
+        carbohidratos: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Proteínas: {
+        proteínas: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Grasas: {
+        grasas: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Vitaminas: {
+        vitaminas: {
             type: DataTypes.STRING,
             allowNull: false,
         },

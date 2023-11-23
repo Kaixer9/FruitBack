@@ -17,6 +17,6 @@ const Recipe = sequelize.define(
             allowNull: false,
         }
     },
- {timestamps: true}
+{timestamps: true}
 )
 module.exports = Recipe

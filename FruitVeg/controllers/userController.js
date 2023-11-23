@@ -2,8 +2,6 @@ const User = require('../models/User.js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-  // en modelos importar el squalize para el findAll
-  //porque findAll es de sequalize y punto
 
   async function getAllUsers(req, res) { //El admin mira todos los users
 	try {
@@ -14,7 +12,7 @@ const bcrypt = require('bcrypt')
 			}
 		})
 		if (user) {
-			return res.status(200).json(User)
+			return res.status(200).json(user)
 		} else {
 			return res.status(404).send('Usuario no encontrado')
 		}
@@ -25,7 +23,7 @@ const bcrypt = require('bcrypt')
 
 async function getUser(req, res) { // El admin busca un user
 	try {
-		const user = await User.findByPk(req.params.id, {
+		const user = await User.findByPk(req.params.userId, {
 			attributes: {
 				exclude: ['contraseña']
 			}
@@ -33,7 +31,7 @@ async function getUser(req, res) { // El admin busca un user
 		if (user) {
 			return res.status(200).json(user)
 		} else {
-			return res.status(404).send('User no encontrado')
+			return res.status(404).send('Usuario no encontrado')
 		}
 	} catch (error) {
 		res.status(500).send(error.message)
@@ -46,7 +44,7 @@ async function getUser(req, res) { // El admin busca un user
 		const [userExist, user] = await User.update(req.body, {
 			returning: true,
 			where: {
-				id: req.params.user.id,
+				id: req.params.userId,
 			},
 		})
 		if (userExist !== 0) {
@@ -112,5 +110,20 @@ async function getUser(req, res) { // El admin busca un user
 	}
 }
 
+async function createUser(req, res) { // Para el admin
+	try {
 
-module.exports = { getAllUsers, getUser, updateUser, deleteUser, getOwnProfile, updateOwnProfile };
+		const salt = bcrypt.genSaltSync(parseInt(process.env.SALTROUNDS))
+		const encrypted = bcrypt.hashSync(req.body.contraseña, salt)
+		req.body.contraseña = encrypted
+
+		const user = await User.create(req.body)
+		return res.status(200).send(user)
+
+	} catch (error) {
+		res.status(500).send(error.message)
+	}
+}
+
+
+module.exports = { getAllUsers, getUser, updateUser, deleteUser, getOwnProfile, updateOwnProfile, createUser };

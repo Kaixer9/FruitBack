@@ -13,11 +13,11 @@ const {
      } = require('../controllers/frutasController.js')
 
 
-router.post('/frutas', checkAdmin, createFruit)
-router.put('/frutas/frutasId', checkAdmin, updateFruit)
-router.delete('/frutas/frutasId', checkAdmin, deleteFruit)
+router.post('/', checkAdmin, createFruit)
+router.put('/:frutasId', checkAdmin, updateFruit)
+router.delete('/:frutasId', checkAdmin, deleteFruit)
 
-router.get('/frutas', getAllFruits) // Traigo todas y luego filtro en el front
-router.get('/frutas/frutasId', getFruit) // por Id para pillar una
+router.get('/', getAllFruits) // Traigo todas y luego filtro en el front
+router.get('/:frutasId', getFruit) // por Id para pillar una
 
 module.exports = router;

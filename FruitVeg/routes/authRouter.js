@@ -3,10 +3,10 @@ const { signUpUser, loginUser } = require('../controllers/authController')
 
 
 // Usuarios crea
-router.post('/signupUser', signUpUser);
+router.post('/signup', signUpUser);
 
 // Inicio de sesión
-router.post('/loginUser', loginUser);
+router.post('/login', loginUser);
 
 
 module.exports = router

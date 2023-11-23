@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 require('dotenv').config()
 
-const checkUser = async (req, res, next) => { //checkauth (cheko si logeado)
+const checkUser = async (req, res, next) => { //checkauth
     if (!req.headers.authorization) {
         return res.status(401).send('Token not found')
     }
@@ -25,13 +25,11 @@ const checkUser = async (req, res, next) => { //checkauth (cheko si logeado)
         })
 }
     function checkAdmin(req, res, next) {
-    if (res.locals.user.role !== 'admin') {
-        return res.status(401).send('Usuario no autorizado')  // Return error for any role different from 'admin'
+    if (res.locals.role !== 'admin') {
+        return res.status(401).send('Usuario no autorizado')  // Lo devuelve si no 'admin'
     } else {
-        next()  // SI tiene el rol de admin, accede a la sig función de la ruta...
+        next()  // Si tiene el rol de admin, accede a la sig función de la ruta...
     }
 }
-
-// La función del rol de admin es así? ah
 
     module.exports = {checkUser, checkAdmin}

@@ -8,18 +8,19 @@ updateUser,
 deleteUser,
 getOwnProfile,
 updateOwnProfile,
-//getSavedRecipes,
+createUser,
  } = require('../controllers/userController.js')
 
-router.get('/user/profile', checkUser, getOwnProfile)
-router.put('/user/profile', checkUser, updateOwnProfile)
-//router.get('/user/recipe', checkUser, getSavedRecipes) // ver si hace falta o no
+router.get('/profile', checkUser, getOwnProfile)
+router.put('/profile', checkUser, updateOwnProfile)
 
-router.get('/user', checkAdmin, getAllUsers)
-router.get('/user/:userId', checkAdmin, getUser)
+router.get('/', checkAdmin, getAllUsers)
+router.get('/:userId', checkAdmin, getUser)
 
-router.put('/user/:userId', checkAdmin, updateUser) 
-router.delete('/user/:userId', checkAdmin, deleteUser)
+router.put('/:userId', checkAdmin, updateUser) 
+router.delete('/:userId', checkAdmin, deleteUser)
+
+router.post('/', createUser)
 
 
 

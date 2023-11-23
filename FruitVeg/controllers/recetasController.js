@@ -2,13 +2,12 @@ const Recipe = require('../models/Recetas.js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-async function getRecipe(req, res) { // admin
+async function getRecipe(req, res) { // user
 	try {
-		const test = await Recipe.findByPk(req.params.recipeId, {
-			attributes: {
-			}
+		const recipe = await Recipe.findByPk(req.params.recetasId, {
+			attributes: {}
 		})
-		if (test) {
+		if (recipe) {
 			return res.status(200).json(recipe)
 		} else {
 			return res.status(404).send('Receta no encontrada')
@@ -49,7 +48,7 @@ async function updateRecipe(req, res) { //admin
 		const [recipeExist, recipe] = await Recipe.update(req.body, {
 			returning: true,
 			where: {
-				id: req.params.recipeId,
+				id: req.params.recetasId,
 			},
 		})
 		if (recipeExist !== 0) {
@@ -66,7 +65,7 @@ async function deleteRecipe(req, res) { //admin
 	try {
 		const recipe = await Recipe.destroy({
 			where: {
-				id: req.params.recipeId,
+				id: req.params.recetasId,
 			},
 		})
 		if (recipe) {

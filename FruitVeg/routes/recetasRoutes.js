@@ -10,12 +10,12 @@ const {
     deleteRecipe,
      } = require('../controllers/recetasController.js')
 
-router.put('/frutas/:recetasId', checkAdmin, updateRecipe)
-router.delete('/frutas/:recetasId', checkAdmin, deleteRecipe)
-router.get('/frutas/:recetasId', checkAdmin, getRecipe)
+router.put('/:recetasId', checkAdmin, updateRecipe)
+router.delete('/:recetasId', checkAdmin, deleteRecipe)
 
-router.post('/frutas/recetas', checkUser, createRecipe)
-router.get('/frutas/recetas', checkUser, getAllRecipes) // Traigo todas y luego filtro en el front
-
+router.post('/', checkUser, createRecipe)
+router.get('/', checkUser, getAllRecipes) 
+router.get('/:recetasId', checkUser, getRecipe)
+// Traigo todas y luego filtro en el front
 
 module.exports = router;

@@ -6,8 +6,7 @@ async function getAllFruits(req, res) { // el user sin token
 	try {
 		const fruit = await Fruit.findAll({
 			where: req.query,
-			attributes: {
-			}
+			attributes: {}
 		})
 		if (fruit) {
 			return res.status(200).json(fruit)
@@ -21,7 +20,7 @@ async function getAllFruits(req, res) { // el user sin token
 
 async function getFruit(req, res) { // El user sin token
 	try {
-		const fruit = await Fruit.findByPk(req.params.fruitId, {
+		const fruit = await Fruit.findByPk(req.params.frutasId, {
 			attributes: {
 			}
 		})
@@ -49,8 +48,8 @@ async function updateFruit(req, res) { // el admin
 		const [fruitExist, fruit] = await Fruit.update(req.body, {
 			returning: true,
 			where: {
-				id: req.params.fruitId,
-			},
+				id: req.params.frutasId,
+			}
 		})
 		if (fruitExist !== 0) {
 			return res.status(200).json({ message: 'Fruta actualizada', fruit: fruit })
@@ -64,9 +63,9 @@ async function updateFruit(req, res) { // el admin
 
 async function deleteFruit(req, res) { // el admin
 	try {
-		const fruit = await Fruta.destroy({
+		const fruit = await fruitExist.destroy({
 			where: {
-				id: req.params.fruitId,
+				id: req.params.frutasId,
 			},
 		})
 		if (fruit) {

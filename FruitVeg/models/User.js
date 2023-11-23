@@ -9,7 +9,6 @@ const User = sequelize.define(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		
         email: {
             type: DataTypes.STRING,
             unique: true,
@@ -20,7 +19,12 @@ const User = sequelize.define(
         contraseña: {
             type: DataTypes.STRING,
             allowNull: false,
-        },   
+        },
+        role: {
+            type: DataTypes.ENUM('usuario', 'admin'),
+            allowNull: false,
+            defaultValue: "usuario"
+        },
     },
     {timestamps: false}
 )

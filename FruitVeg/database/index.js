@@ -20,7 +20,7 @@ async function checkDB(){ // Cheko
 
 async function syncModels(){
   try {
-      await sequelize.sync({alter: true})
+      await sequelize.sync()
       console.log("Models synchronized")
   } catch (error) {
       console.log(error)

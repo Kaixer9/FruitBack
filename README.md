@@ -23,7 +23,7 @@ POST   | /auth/login        | -     | user  | User Login               | `email`
 
 METHOD | ENDPOINT           | TOKEN | ROLE     | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|--------------------|-------|----------|-----------------------|----------------------------------------------|--------------------
-GET    | /user              | YES   | admin    | Get All Users         | `query params`                               | [{user}]
+GET    | /user              | YES   | admin    | Get All Users         | `query params`                               | [{users}]
 PUT    | /user/:userId      | YES   | admin    | Update user           | `nick`, `email`, `contraseña`                | {message: 'user updated'}
 DELETE | /user/:userId      | YES   | admin    | Delete user           |                                              | {message: 'user deleted'}
 GET    | /user/profile      | YES   | user     | Get Own Profile       |                                              | {user}
@@ -44,7 +44,8 @@ DELETE | /frutas/:frutasId  | YES   | admin    | Delete fruits         |        
 
 METHOD | ENDPOINT           | TOKEN | ROLE     | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|--------------------|-------|----------|-----------------------|----------------------------------------------|--------------------
-PUT    | /frutas/:recetasId | YES   | admin    | Update recipe         |                                              | {message: 'recipe updated'}
-DELETE | /frutas/:recetasId | YES   | admin    | Delete recipe         |                                              | {message: 'recipe deleted'}
-GET    | /frutas/recetas    | YES   | user     | Get recipes           |                                              | [{recipes}]
-POST   | /frutas/recetas    | YES   | user     | Create recipe         |                                              | {message: 'recipe created'}
+PUT    | /recetas/:recetasId | YES   | admin    | Update recipe         |                                              | {message: 'recipe updated'}
+DELETE | /recetas/:recetasId | YES   | admin    | Delete recipe         |                                              | {message: 'recipe deleted'}
+POST   | /recetas    | YES   | user     | Create recipe         |                                              | {message: 'recipe created'}
+GET    | /recetas    | YES   | user     | Get All recipes       |                                              | [{recipes}]
+GET    | /recetas/recetasId  | YES   | user     | Get recipes           |                                              | [{recipes}]

@@ -19,9 +19,7 @@ router.get('/:userId', checkAdmin, getUser)
 
 router.put('/:userId', checkAdmin, updateUser) 
 router.delete('/:userId', checkAdmin, deleteUser)
-
-router.post('/', createUser)
-
+router.post('/', checkAdmin, createUser) // admin, no token
 
 
 module.exports = router

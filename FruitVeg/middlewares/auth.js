@@ -21,6 +21,8 @@ const checkUser = async (req, res, next) => { //checkauth
             if (!user) {
                 return res.status(404).send('Usuario no encontrado')
             }
+            res.locals.user = user
+                //console.log(res.locals)
             next()
         })
 }

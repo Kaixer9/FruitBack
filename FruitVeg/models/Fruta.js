@@ -16,7 +16,11 @@ const Fruit = sequelize.define(
             type: DataTypes.ENUM('primavera', 'verano', 'otoño', 'invierno'),
             allowNull: false,
         },
-        mes: {
+        mes_inicio: {
+            type: DataTypes.ENUM('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'),
+            allowNull: false,
+        },
+        mes_fin: {
             type: DataTypes.ENUM('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'),
             allowNull: false,
         },

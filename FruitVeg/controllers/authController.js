@@ -38,7 +38,7 @@ const loginUser = async (req, res) => {
         const comparePassword = bcrypt.compareSync(req.body.contraseña, user.contraseña)
         if (comparePassword) {
             const payload = { email: user.email }
-            const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' })
+            const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '5h' })
             return res.status(200).json({ token })
         } else {
             return res

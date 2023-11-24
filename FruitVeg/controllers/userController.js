@@ -80,7 +80,7 @@ async function getUser(req, res) { // El admin busca un user
 		const user = await User.findByPk(res.locals.user.id)
 
 		if (user) {
-			const message = `Hola ${user.nombre}!, este es tu perfil`
+			const message = `Hola ${user.nick}, este es tu perfil`
 
 			return res.status(200).json({ message, user })
 		} else {

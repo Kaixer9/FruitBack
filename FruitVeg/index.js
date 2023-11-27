@@ -17,7 +17,7 @@ function launchServer(){
         .use(cors())
         .use(morgan('dev'))
         .use(express.json())
-        .use('/fruitveg', require('./routes/index.js')) // dirección (localhost http://localhost:3000/api)
+        .use('/fruitveg', require('./routes/index.js')) // dirección (localhost http://localhost:3000/)
 
         .listen(process.env.SRV_PORT, ()=> {console.log("Server listening: port 3000")}) 
 }

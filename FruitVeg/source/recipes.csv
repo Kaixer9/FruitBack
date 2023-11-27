@@ -1,2 +1,2 @@
-id,users_id,fruits_id,nombre,ingredientes,preparación
-1,2,1,Queque de plátano,"3 plátanos, 1 cucharada de zumo de limón, media taza de margarina, media taza de azúcar, 2 tazas de harina, leche de coco y espesante.","Horno a 180 grados. Machacar los plátanos y mezclarlos con el limón,mezclar la margarina y el azúcar, mezclar con la harina, la leche y el espesante y batir todo hasta que quede cremoso. Vertir en un molde y hornear por 1h."
+id,users_id,fruits_id,nombre,ingredientes,preparación,createdAt,updatedAt
+1,2,1,Queque de plátano,"3 plátanos, 1 cucharada de zumo de limón, media taza de margarina, media taza de azúcar, 2 tazas de harina, leche de coco y espesante.","Horno a 180 grados. Machacar los plátanos y mezclarlos con el limón,mezclar la margarina y el azúcar, mezclar con la harina, la leche y el espesante y batir todo hasta que quede cremoso. Vertir en un molde y hornear por 1h.",2023-11-27,2023-11-27

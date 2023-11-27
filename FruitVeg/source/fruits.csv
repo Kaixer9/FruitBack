@@ -1,4 +1,4 @@
-id,nombre,grupo,estacion,mes_inicio,mes_fin,calorias,carbohidratos,proteínas,grasas,vitaminas
+id,nombre,grupo,estacion,mes_inicio,mes_fin,calorías,carbohidratos,proteínas,grasas,vitaminas
 1,Plátano,Fruta,Primavera,Enero,Febrero,ejemplo,ejemplo,ejemplo,ejemplo,ejemplo
 2,Papaya,Fruta,Primavera,Enero,Febrero,ejemplo,ejemplo,ejemplo,ejemplo,ejemplo
 3,Mango,Fruta,Primavera,Enero,Febrero,ejemplo,ejemplo,ejemplo,ejemplo,ejemplo

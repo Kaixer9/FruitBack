@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/Kaixer9/web/issues"
   },
+  "engines": {
+    "node": ">=18.04"
+  },
   "homepage": "https://github.com/Kaixer9/web#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",

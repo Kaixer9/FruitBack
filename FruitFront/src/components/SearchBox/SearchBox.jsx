@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-/*
+
 const SearchBox = ({ onBuscar }) => {
   const [terminoBusqueda, setTerminoBusqueda] = useState('');
 
@@ -26,4 +26,4 @@ const SearchBox = ({ onBuscar }) => {
   );
 };
 
-export default SearchBox;*/
+export default SearchBox;

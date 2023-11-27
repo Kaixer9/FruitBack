@@ -12,9 +12,9 @@ const App = () => {
     //  fetchFrutasFromDatabase() y luego setFrutas(resultadoDeLaBaseDeDatos) //lo de fetch no sé no sé
   }, []);
 
-  const guardarFruta = () => {
+  /*const guardarFruta = () => {
     // guardo frutas?
-  };
+  };*/
 
   const handleBusqueda = (e) => {
     setBusqueda(e.target.value);

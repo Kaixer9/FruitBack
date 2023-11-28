@@ -16,8 +16,9 @@ router.delete('/:recetasId', checkAdmin, deleteRecipe)
 
 router.post('/', checkUser, createRecipe)
 router.get('/', checkUser, getAllRecipes) 
-router.get('/:recetasId', checkUser, getRecipe)
-router.get('/:recetaId', getFruitRecipes);
+router.get('/:recetasId', getRecipe)
+
+router.get('/:recetaId', getFruitRecipes)
 // Traigo todas y luego filtro en el front
 
 module.exports = router;

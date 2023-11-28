@@ -1,4 +1,5 @@
 const Recipe = require('../models/Recetas.js')
+const Fruit = require('../models/Fruta.js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
@@ -9,6 +10,19 @@ async function getRecipe(req, res) { // user
 		})
 		if (recipe) {
 			return res.status(200).json(recipe)
+		} else {
+			return res.status(404).send('Receta no encontrada')
+		}
+	} catch (error) {
+		res.status(500).send(error.message)
+	}
+};
+
+async function getFruitRecipes(req, res) {
+	try {
+		const fruit = await Fruit.findByPk(req.params.id, {include: Recipe})
+		if (fruit && fruit.Recipes) {
+			return res.status(200).json(fruit.Recipes)
 		} else {
 			return res.status(404).send('Receta no encontrada')
 		}
@@ -79,4 +93,4 @@ async function deleteRecipe(req, res) { //admin
 }
 
 
-module.exports = { getRecipe, getAllRecipes, createRecipe, updateRecipe, deleteRecipe }
+module.exports = { getRecipe, getFruitRecipes, getAllRecipes, createRecipe, updateRecipe, deleteRecipe }

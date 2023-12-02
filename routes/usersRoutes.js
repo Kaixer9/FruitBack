@@ -15,7 +15,7 @@ router.get('/profile', checkUser, getOwnProfile)
 router.put('/profile', checkUser, updateOwnProfile)
 
 router.get('/', checkAdmin, getAllUsers)
-router.get('/:userId', checkAdmin, getUser)
+router.get('/:userId', getUser)
 
 router.put('/:userId', checkAdmin, updateUser) 
 router.delete('/:userId', checkAdmin, deleteUser)

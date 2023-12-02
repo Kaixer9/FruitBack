@@ -14,11 +14,10 @@ const {
 router.put('/:recetasId', checkAdmin, updateRecipe)
 router.delete('/:recetasId', checkAdmin, deleteRecipe)
 
-router.post('/',  createRecipe)
+router.post('/:frutaId/recetas',  createRecipe)
 router.get('/', getAllRecipes) 
 router.get('/:recetasId', getRecipe)
 
 router.get('/:recetaId', getFruitRecipes)
-// Traigo todas y luego filtro en el front
 
 module.exports = router;

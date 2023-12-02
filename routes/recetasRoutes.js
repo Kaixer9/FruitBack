@@ -14,7 +14,7 @@ const {
 router.put('/:recetasId', checkAdmin, updateRecipe)
 router.delete('/:recetasId', checkAdmin, deleteRecipe)
 
-router.post('/:frutaId/recetas',  createRecipe)
+router.post('/',  createRecipe)
 router.get('/', getAllRecipes) 
 router.get('/:recetasId', getRecipe)
 

@@ -50,8 +50,16 @@ async function getAllRecipes(req, res) { // user
 }
 
 async function createRecipe(req, res) { // user
+	const userId = req.params.userId;
+ 
+  const frutaId = req.params.frutaId;
+
+  const recetaData = req.body;
+
+  recetaData.userId = userId;
+  recetaData.frutaId = frutaId;
 	try {
-		const recipe = await Recipe.create(req.body)
+		const recipe = await Recipe.create(req.body) 
 		return res.status(200).json({ message: 'Receta creada', recipe: recipe })
 	} catch (error) {
 		res.status(500).send(error.message)

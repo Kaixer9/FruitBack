@@ -6,7 +6,8 @@ const bcrypt = require('bcrypt')
 async function getRecipe(req, res) { // user
 	try {
 		const recipe = await Recipe.findByPk(req.params.recetasId, {
-			attributes: {}
+			attributes: {},
+			include: User,
 		})
 		if (recipe) {
 			return res.status(200).json(recipe)
@@ -20,7 +21,7 @@ async function getRecipe(req, res) { // user
 
 async function getFruitRecipes(req, res) {
 	try {
-		const fruit = await Fruit.findByPk(req.params.id, {include: Recipe})
+		const fruit = await Fruit.findByPk(req.params.id, {include: Recipe}, {include: User})
 		if (fruit && fruit.Recipes) {
 			return res.status(200).json(fruit.Recipes)
 		} else {

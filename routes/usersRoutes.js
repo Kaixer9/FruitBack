@@ -11,8 +11,8 @@ updateOwnProfile,
 createUser,
  } = require('../controllers/userController.js')
 
-router.get('/profile', checkUser, getOwnProfile)
-router.put('/profile', checkUser, updateOwnProfile)
+router.get('/profile', getOwnProfile)
+router.put('/profile', updateOwnProfile)
 
 router.get('/', checkAdmin, getAllUsers)
 router.get('/:userId', getUser)

@@ -26,7 +26,7 @@ async function getFruitRecipes(req, res) {
 			where: {fruitId: req.params.frutaId}
 		})
 		if (recipes) {
-			return res.status(200).json(recipes.recipes)
+			return res.status(200).json(recipes)
 		} else {
 			return res.status(404).send('No se encontraron recetas')
 		}

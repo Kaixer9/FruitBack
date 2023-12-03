@@ -18,6 +18,6 @@ router.post('/',  createRecipe)
 router.get('/', getAllRecipes) 
 router.get('/:recetasId', getRecipe)
 
-router.get('/:recetaId', getFruitRecipes)
+router.get('/frutas/:frutaId', getFruitRecipes)
 
 module.exports = router;

@@ -27,7 +27,7 @@ const checkUser = async (req, res, next) => { //checkauth
         })
 }
     function checkAdmin(req, res, next) {
-    if (res.locals.role !== 'admin') {
+    if (res.locals.user.role !== 'admin') {
         return res.status(401).send('Usuario no autorizado')  // Lo devuelve si no 'admin'
     } else {
         next()  // Si tiene el rol de admin, accede a la sig función de la ruta...

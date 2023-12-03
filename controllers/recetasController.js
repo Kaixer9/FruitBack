@@ -22,7 +22,7 @@ async function getRecipe(req, res) { // user
 
 async function getFruitRecipes(req, res) {
 	try {
-		const fruit = await Fruit.findByPk(req.params.id, {include: Recipe}, {include: User})
+		const fruit = await Fruit.findByPk(req.params.fruitId, {include: Recipe}, {include: User})
 		if (fruit && fruit.Recipes) {
 			return res.status(200).json(fruit.Recipes)
 		} else {

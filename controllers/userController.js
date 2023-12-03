@@ -1,6 +1,7 @@
 const User = require('../models/User.js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const Recipe = require("../models/Recetas.js")
 
 
   async function getAllUsers(req, res) { //El admin mira todos los users
@@ -77,7 +78,7 @@ async function getUser(req, res) { // El admin busca un user
 
   async function getOwnProfile(req, res) { //perfil de user normal
 	try {
-		const user = await User.findByPk(res.locals.user.id)
+		const user = await User.findByPk(res.locals.user.id, {include: Recipe})
 
 		if (user) {
 			const message = `Hola ${user.nick}, este es tu perfil`

@@ -11,8 +11,8 @@ const {
     deleteRecipe,
      } = require('../controllers/recetasController.js')
 
-router.put('/:recetasId', checkAdmin, updateRecipe)
-router.delete('/:recetasId', checkAdmin, deleteRecipe)
+router.put('/:recetasId', updateRecipe)
+router.delete('/:recetasId', deleteRecipe)
 
 router.post('/',  createRecipe)
 router.get('/', getAllRecipes) 

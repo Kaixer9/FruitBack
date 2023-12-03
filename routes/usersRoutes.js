@@ -14,12 +14,12 @@ createUser,
 router.get('/profile', getOwnProfile)
 router.put('/profile', updateOwnProfile)
 
-router.get('/', checkAdmin, getAllUsers)
+router.get('/', getAllUsers)
 router.get('/:userId', getUser)
 
 router.put('/:userId', checkAdmin, updateUser) 
 router.delete('/:userId', checkAdmin, deleteUser)
-router.post('/', checkAdmin, createUser) // admin, no token
+router.post('/', createUser) // admin, no token
 
 
 module.exports = router

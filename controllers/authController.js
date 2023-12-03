@@ -14,7 +14,7 @@ const signUpUser = async (req, res) => {
         req.body.contraseña = encrypted
 
         const user = await User.create(req.body)
-        const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' })
+        const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '99h' })
         return res.status(200).json({ token })
 
     } catch (error) {

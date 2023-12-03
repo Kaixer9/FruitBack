@@ -22,11 +22,13 @@ async function getRecipe(req, res) { // user
 
 async function getFruitRecipes(req, res) {
 	try {
-		const fruit = await Fruit.findByPk(req.params.frutaId, {include: Recipe}/*, {include: User}*/)
-		if (fruit) {
-			return res.status(200).json(fruit)
+		const recipes = await Recipe.findAll({
+			where: {fruitId: req.params.frutaId}
+		})
+		if (recipes) {
+			return res.status(200).json(recipes.recipes)
 		} else {
-			return res.status(404).send('Receta no encontrada')
+			return res.status(404).send('No se encontraron recetas')
 		}
 	} catch (error) {
 		res.status(500).send(error.message)

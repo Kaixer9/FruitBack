@@ -77,7 +77,7 @@ async function getUser(req, res) { // El admin busca un user
 
   async function getOwnProfile(req, res) { //perfil de user normal
 	try {
-		const user = await User.findByPk(res.locals.user)
+		const user = await User.findByPk(req.locals.user.id)
 
 		if (user) {
 			const message = `Hola ${user.nick}, este es tu perfil`

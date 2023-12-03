@@ -1,5 +1,6 @@
 const Recipe = require('../models/Recetas.js')
 const Fruit = require('../models/Fruta.js')
+const User =require('../models/User.js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 

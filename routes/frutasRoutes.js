@@ -14,7 +14,7 @@ const {
 
 
 router.post('/', checkAdmin, createFruit)
-router.put('/:frutasId',00000 updateFruit)
+router.put('/:frutasId', updateFruit)
 router.delete('/:frutasId', checkAdmin, deleteFruit)
 
 router.get('/', getAllFruits) // Traigo todas y luego filtro en el front

@@ -2,7 +2,7 @@
 
 Introducción:
 
-Proyecto destinado a ayudar al consumidor elegir las drutas y verduras de temporada haciendo una compra responsable.
+Proyecto destinado a ayudar al consumidor elegir las frutas y verduras de temporada haciendo una compra responsable.
 
 Funciones:
 * El usuario podrá registrarse y loguearse,
